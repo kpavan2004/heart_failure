@@ -1,6 +1,7 @@
 # Path setup, and access the config.yml file, datasets folder & trained models
 import sys
 from pathlib import Path
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -13,10 +14,10 @@ import heart_failure_prediction_model
 
 # Project Directories
 PACKAGE_ROOT = Path(heart_failure_prediction_model.__file__).resolve().parent
-#print(PACKAGE_ROOT)
+# print(PACKAGE_ROOT)
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
-#print(CONFIG_FILE_PATH)
+# print(CONFIG_FILE_PATH)
 
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
@@ -38,13 +39,15 @@ class ModelConfig(BaseModel):
     All configuration relevant to model
     training and feature engineering.
     """
-    target:str
+
+    target: str
     features: List[str]
-  
-    test_size:float
+
+    test_size: float
     random_state: int
     n_estimators: int
     max_depth: int
+
 
 class Config(BaseModel):
     """Master config object."""

@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -10,10 +11,13 @@ from sklearn.metrics import accuracy_score
 
 from heart_failure_prediction_model.config.core import config
 from heart_failure_prediction_model.pipeline import heart_failure_pipe
-from heart_failure_prediction_model.processing.data_manager import load_dataset, save_pipeline
+from heart_failure_prediction_model.processing.data_manager import (
+    load_dataset,
+    save_pipeline,
+)
+
 
 def run_training() -> None:
-    
     """
     Train the model.
     """
@@ -32,13 +36,14 @@ def run_training() -> None:
     )
 
     # Pipeline fitting
-    heart_failure_pipe.fit(X_train,y_train)
-    #y_pred = heart_failure_pipe.predict(X_test)
-    #print("Accuracy(in %):", accuracy_score(y_test, y_pred)*100)
+    heart_failure_pipe.fit(X_train, y_train)
+    # y_pred = heart_failure_pipe.predict(X_test)
+    # print("Accuracy(in %):", accuracy_score(y_test, y_pred)*100)
 
     # persist trained model
-    save_pipeline(pipeline_to_persist= heart_failure_pipe)
+    save_pipeline(pipeline_to_persist=heart_failure_pipe)
     # printing the score
-    
+
+
 if __name__ == "__main__":
     run_training()

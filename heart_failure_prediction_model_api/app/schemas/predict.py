@@ -7,7 +7,7 @@ from heart_failure_prediction_model.processing.validation import DataInputSchema
 class PredictionResults(BaseModel):
     errors: Optional[Any]
     version: str
-    #predictions: Optional[List[int]]
+    # predictions: Optional[List[int]]
     predictions: Optional[int]
 
 
@@ -19,7 +19,6 @@ class MultipleDataInputs(BaseModel):
             "example": {
                 "inputs": [
                     {
-                        
                         "age": 75,
                         "anaemia": 0,
                         "creatinine_phosphokinase": 582,
@@ -31,7 +30,7 @@ class MultipleDataInputs(BaseModel):
                         "serum_sodium": 130,
                         "sex": 1,
                         "smoking": 1,
-                        "time": 4 
+                        "time": 4,
                     }
                 ]
             }

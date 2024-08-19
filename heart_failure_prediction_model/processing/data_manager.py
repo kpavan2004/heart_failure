@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -11,14 +12,20 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 
 from heart_failure_prediction_model import __version__ as _version
-from heart_failure_prediction_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
+from heart_failure_prediction_model.config.core import (
+    DATASET_DIR,
+    TRAINED_MODEL_DIR,
+    config,
+)
 
 
 ##  Pre-Pipeline Preparation
 
+
 def _load_raw_dataset(*, file_name: str) -> pd.DataFrame:
     dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
     return dataframe
+
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
     dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
