@@ -40,7 +40,7 @@ jobs:
     - name: Test with pytest
       run: pytest
   black:
-    needs: [train, test, lint]
+    needs: [train, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -49,7 +49,7 @@ jobs:
       - name: black the setup file
         run:  black .
   build:
-    needs: [train, test, lint, black]
+    needs: [train, test, black]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
