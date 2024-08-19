@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # copy application files
-ADD /heart_failure_prediction_model /heart_failure_prediction_model_api/
+ADD /heart_failure_prediction_model_api /heart_failure_prediction_model_api/
 
 # specify working directory
 WORKDIR /heart_failure_prediction_model_api
